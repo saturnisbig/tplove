@@ -1,0 +1,182 @@
+{% extends 'base.html' %}
+
+{% block css %}
+<link rel="stylesheet" href="http://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+<link rel="stylesheet" href="/static/css/bootstrap-image-gallery.min.css">
+{% endblock %}
+
+
+{% block content %}
+<!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+<div id="blueimp-gallery" class="blueimp-gallery">
+  <!-- The container for the modal slides -->
+  <div class="slides"></div>
+  <!-- Controls for the borderless lightbox -->
+  <h3 class="title"></h3>
+  <a class="prev">‹</a>
+  <a class="next">›</a>
+  <a class="close">×</a>
+  <a class="play-pause"></a>
+  <ol class="indicator"></ol>
+  <!-- The modal dialog, which will be used to wrap the lightbox content -->
+  <div class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" aria-hidden="true">&times;</button>
+          <h4 class="modal-title"></h4>
+        </div>
+        <div class="modal-body next"></div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default pull-left prev">
+            <i class="glyphicon glyphicon-chevron-left"></i>
+            Previous
+          </button>
+          <button type="button" class="btn btn-primary next">
+            Next
+            <i class="glyphicon glyphicon-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="span12">
+      <!--
+      <ul class="nav nav-tabs">
+        <li><a href="#hunshazhao">婚纱照</a></li>
+        <li><a href="#taining">泰宁行</a></li>
+        <li><a href="#shaoxing">绍兴行</a></li>
+        <li><a href="#qita" >其他</a></li>
+      </ul>
+      -->
+      <div class="btn-group">
+        <a class="btn btn-danger btn-large" href="#hunshazhao">婚纱</a>
+        <a class="btn btn-success btn-large" href="#taining">泰宁</a>
+        <!--<a class="btn btn-warning btn-large" href="#shaoxing">绍兴</a>-->
+        <a class="btn btn-info btn-large" href="#qita">其他</a>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <!-- <div class="span2">
+      <div class="well slidebar-nav"> 
+        <ul class="nav nav-tabs">
+          <li><a href="#xiangshi">相识</a></li>
+          <li><a href="#xiangzhi">相知</a></li>
+          <li><a href="#xiangai">相爱</a></li>
+          <li><a href="#xiangshou">结婚</a></li>
+        </ul>
+      </div>
+    </div>-->
+    <div class="span12">
+      <div id="hunshazhao">
+        <h4 class="text-error">婚纱照</h4>
+        <div class="span10 offset1" id="links">
+          <!-- a 中是大的图, img是小的图 -->
+          <h5>Part 1.</h5>
+          <a href="http://ww4.sinaimg.cn/large/95c2f5b8gw1eat0k0ebhlj20p00huqa9.jpg" title="" data-gallery><img class="gallery-12" src="http://ww1.sinaimg.cn/large/95c2f5b8gw1eat0ewccx9j2032026dfq.jpg" alt=""></a>
+
+          <a href="http://ww3.sinaimg.cn/large/95c2f5b8gw1eat1gsx328j20p00huahb.jpg" title="" data-gallery><img class="gallery-12" src="http://ww3.sinaimg.cn/large/95c2f5b8gw1eat0lqkil0j20320260sk.jpg" alt=""></a>
+          <a href="http://ww2.sinaimg.cn/large/95c2f5b8gw1eat1h4hsclj20p00hun46.jpg" title="" data-gallery><img class="gallery-12" src="http://ww3.sinaimg.cn/large/95c2f5b8gw1eat0m9gtm5j2032026mx0.jpg" alt=""></a>
+          <a href="http://ww2.sinaimg.cn/large/95c2f5b8gw1eat1hhsnfnj20p00hudne.jpg" title="" data-gallery><img class="gallery-12" src="http://ww1.sinaimg.cn/large/95c2f5b8gw1eat12uatckj2032026q2s.jpg" alt=""></a>
+          <a href="http://ww3.sinaimg.cn/large/95c2f5b8gw1eat1izagzwj20p00huqa9.jpg" title="" data-gallery><img class="gallery-12" src="http://ww4.sinaimg.cn/large/95c2f5b8gw1eat13awjhwj2032026a9w.jpg" alt=""></a>
+          <a href="http://ww4.sinaimg.cn/large/95c2f5b8gw1eat1j8te6pj20p00hu7bn.jpg" title="" data-gallery><img class="gallery-12" src="http://ww2.sinaimg.cn/large/95c2f5b8gw1eat13nzsbzj20320260sl.jpg" alt=""></a>
+          <a href="http://ww3.sinaimg.cn/large/95c2f5b8gw1eat1jle1u6j20p00hutfi.jpg" title="" data-gallery><img class="gallery-12" src="http://ww4.sinaimg.cn/large/95c2f5b8gw1eat140563xj2032026glf.jpg" alt=""></a>
+          <a href="http://ww3.sinaimg.cn/large/95c2f5b8gw1eat1k4jm7uj20p00hu45s.jpg" title="" data-gallery><img class="gallery-12" src="http://ww2.sinaimg.cn/large/95c2f5b8gw1eat148l7yoj2032026t8k.jpg" alt=""></a>
+          <a href="http://ww3.sinaimg.cn/large/95c2f5b8gw1eat1kec3wcj20p00huwkd.jpg" title="" data-gallery><img class="gallery-12" src="http://ww1.sinaimg.cn/large/95c2f5b8gw1eat14w1r7vj2032026dfn.jpg" alt=""></a>
+          <a href="http://ww1.sinaimg.cn/large/95c2f5b8gw1eat1km1lzpj20p00hu442.jpg" title="" data-gallery><img class="gallery-12" src="http://ww1.sinaimg.cn/large/95c2f5b8gw1eat154njb5j20320263yb.jpg" alt=""></a>
+          <h5>Part 2.</h5>
+          <a href="http://ww4.sinaimg.cn/large/95c2f5b8gw1eat15u2cn7j20p00gnmym.jpg" title="" data-gallery><img class="gallery-12" src="http://ww1.sinaimg.cn/large/95c2f5b8gw1eat16opb44j2032021wea.jpg" alt=""></a>
+          <a href="http://ww4.sinaimg.cn/large/95c2f5b8gw1eat17873d0j20p00gn0uo.jpg" title="" data-gallery><img class="gallery-12" src="http://ww2.sinaimg.cn/large/95c2f5b8gw1eat1715pgej2032021web.jpg" alt=""></a>
+          <a href="http://ww2.sinaimg.cn/large/95c2f5b8gw1eat17z71gzj20p00gn0v5.jpg" title="" data-gallery><img class="gallery-12" src="http://ww3.sinaimg.cn/large/95c2f5b8gw1eat18ankprj2032021jr7.jpg" alt=""></a>
+          <a href="http://ww4.sinaimg.cn/large/95c2f5b8gw1eat18mpf88j20p00gn76q.jpg" title="" data-gallery><img class="gallery-12" src="http://ww1.sinaimg.cn/large/95c2f5b8gw1eat18tfjmdj2032021a9w.jpg" alt=""></a>
+          <a href="http://ww2.sinaimg.cn/large/95c2f5b8gw1eat1a2t838j20p00gnjuj.jpg" title="" data-gallery><img class="gallery-12" src="http://ww2.sinaimg.cn/large/95c2f5b8gw1eat1a9wmj9j2032021glg.jpg" alt=""></a>
+          <a href="http://ww2.sinaimg.cn/large/95c2f5b8gw1eat1aig8p5j20p00gnad7.jpg" title="" data-gallery><img class="gallery-12" src="http://ww1.sinaimg.cn/large/95c2f5b8gw1eat1ao9w6ij2032021glg.jpg" alt=""></a>
+          <a href="http://ww4.sinaimg.cn/large/95c2f5b8gw1eat1ciyxx1j20p00gnwgh.jpg" title="" data-gallery><img class="gallery-12" src="http://ww2.sinaimg.cn/large/95c2f5b8gw1eat1cnna16j20320210sk.jpg" alt=""></a>
+          <a href="http://ww4.sinaimg.cn/large/95c2f5b8gw1eat1cspisoj20p00gndi5.jpg" title="" data-gallery><img class="gallery-12" src="http://ww4.sinaimg.cn/large/95c2f5b8gw1eat1cyxa2bj2032021dfo.jpg" alt=""></a>
+          <a href="http://ww4.sinaimg.cn/large/95c2f5b8gw1eat1d4d5y0j20p00gndi2.jpg" title="" data-gallery><img class="gallery-12" src="http://ww2.sinaimg.cn/large/95c2f5b8gw1eat1deah64j2032021glg.jpg" alt=""></a>
+          <a href="http://ww1.sinaimg.cn/large/95c2f5b8gw1eat1ev7proj20p00gngn1.jpg" title="" data-gallery><img class="gallery-12" src="http://ww3.sinaimg.cn/large/95c2f5b8gw1eat1f1djclj2032021mwz.jpg" alt=""></a>
+          <a href="http://ww2.sinaimg.cn/large/95c2f5b8gw1eat1efjw1hj20p00gnjs8.jpg" title="" data-gallery><img class="gallery-12" src="http://ww4.sinaimg.cn/large/95c2f5b8gw1eat1eockc4j2032021dfm.jpg" alt=""></a>
+          <a href="http://ww1.sinaimg.cn/large/95c2f5b8gw1eat1dx37ehj20p00gnad6.jpg" title="" data-gallery><img class="gallery-12" src="http://ww2.sinaimg.cn/large/95c2f5b8gw1eat1e7fqq6j2032021mx1.jpg" alt=""></a>
+          <a href="http://ww4.sinaimg.cn/large/95c2f5b8gw1eat1at5tfgj20gn0p0myh.jpg" title="" data-gallery><img class="gallery-12" src="http://ww4.sinaimg.cn/large/95c2f5b8gw1eat1azwr9sj203204mmx0.jpg" alt=""></a>
+          <a href="http://ww4.sinaimg.cn/large/95c2f5b8gw1eat1b89cmjj20gn0p0wg0.jpg" title="" data-gallery><img class="gallery-12" src="http://ww2.sinaimg.cn/large/95c2f5b8gw1eat1bfn5spj203204ldfo.jpg" alt=""></a>
+          <a href="http://ww4.sinaimg.cn/large/95c2f5b8gw1eat1bqyebvj20gn0p0abk.jpg" title="" data-gallery><img class="gallery-12" src="http://ww4.sinaimg.cn/large/95c2f5b8gw1eat1c0z48qj203204ldfo.jpg" alt=""></a>
+          <a href="http://ww2.sinaimg.cn/large/95c2f5b8gw1eat1c7f04hj20gn0p00tw.jpg" title="" data-gallery><img class="gallery-12" src="http://ww2.sinaimg.cn/large/95c2f5b8gw1eat1cdofxmj203204l744.jpg" alt=""></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span12">
+      <div id="taining">
+        <h4 class="text-success">泰宁行</h4>
+        <div class="span10 offset1" id="links">
+          <!-- a 中是大的图, img是小的图 -->
+          <a href="http://ww2.sinaimg.cn/large/95c2f5b8gw1eave76ihnxj20lo0en42y.jpg" title="" data-gallery><img class="gallery-12" src="http://ww1.sinaimg.cn/large/95c2f5b8gw1eave7zxqxej2032032wee.jpg" alt=""></a>
+          <a href="http://ww3.sinaimg.cn/large/95c2f5b8gw1eave8bsztzj20m80er42j.jpg" title="" data-gallery><img class="gallery-12" src="http://ww2.sinaimg.cn/large/95c2f5b8gw1eave8lcuu6j20320320sl.jpg" alt=""></a>
+          <a href="http://ww3.sinaimg.cn/large/95c2f5b8gw1eave9o4xfdj20ni0fm7a3.jpg" title="" data-gallery><img class="gallery-12" src="http://ww2.sinaimg.cn/large/95c2f5b8gw1eave9ylb4tj2032032dfr.jpg" alt=""></a>
+          <a href="http://ww3.sinaimg.cn/large/95c2f5b8gw1eaveakpvssj20m80er41x.jpg" title="" data-gallery><img class="gallery-12" src="http://ww3.sinaimg.cn/large/95c2f5b8gw1eavear8evqj2032032q2u.jpg" alt=""></a>
+          <a href="http://ww1.sinaimg.cn/large/95c2f5b8gw1eaveb09ofij20bp0btack.jpg" title="" data-gallery><img class="gallery-12" src="http://ww1.sinaimg.cn/large/95c2f5b8gw1eaveb6sgw7j2032032dfr.jpg" alt=""></a>
+          <a href="http://ww1.sinaimg.cn/large/95c2f5b8gw1eavebpvrgqj20lg0ek77u.jpg" title="" data-gallery><img class="gallery-12" src="http://ww1.sinaimg.cn/large/95c2f5b8gw1eavebi6d60j2032032a9x.jpg" alt=""></a>
+          <a href="http://ww2.sinaimg.cn/large/95c2f5b8gw1eaved5jmeij20jz0arack.jpg" title="" data-gallery><img class="gallery-12" src="http://ww3.sinaimg.cn/large/95c2f5b8gw1eavedgbzxmj2032032gli.jpg" alt=""></a>
+          <a href="http://ww2.sinaimg.cn/large/95c2f5b8gw1eavedo6tqsj20n00fi416.jpg" title="" data-gallery><img class="gallery-12" src="http://ww3.sinaimg.cn/large/95c2f5b8gw1eavedwb3jmj2032032dfo.jpg" alt=""></a>
+          <a href="http://ww3.sinaimg.cn/large/95c2f5b8gw1eaveem60shj20nw0geq77.jpg" title="" data-gallery><img class="gallery-12" src="http://ww2.sinaimg.cn/large/95c2f5b8gw1eaveevz730j2032032a9y.jpg" alt=""></a>
+          <a href="http://ww1.sinaimg.cn/large/95c2f5b8gw1eavee8eq4vj20p50gugrx.jpg" title="" data-gallery><img class="gallery-12" src="http://ww1.sinaimg.cn/large/95c2f5b8gw1eaveefk6f4j2032032gli.jpg" alt=""></a>
+          <a href="http://ww2.sinaimg.cn/large/95c2f5b8gw1eavefbilywj20m80erdkb.jpg" title="" data-gallery><img class="gallery-12" src="http://ww4.sinaimg.cn/large/95c2f5b8gw1eavefixy0uj2032032747.jpg" alt=""></a>
+          <a href="http://ww2.sinaimg.cn/large/95c2f5b8gw1eavefrf4eqj20m80ertaw.jpg" title="" data-gallery><img class="gallery-12" src="http://ww2.sinaimg.cn/large/95c2f5b8gw1eaveg19j6lj2032032t8j.jpg" alt=""></a>
+          <a href="http://ww2.sinaimg.cn/large/95c2f5b8gw1eaveg6z70uj20o90h2q9z.jpg" title="" data-gallery><img class="gallery-12" src="http://ww1.sinaimg.cn/large/95c2f5b8gw1eavegegfblj2032032gli.jpg" alt=""></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--
+  <div class="row">
+    <div class="span12">
+      <div id="shaoxing">
+        <h4 class="text-warning">绍兴行</h4>
+        <div class="span10 offset1" id="links">
+          <a href="" title="" data-gallery><img class="gallery-12" src="" alt=""></a>
+          <a href="" title="" data-gallery><img class="gallery-12" src="" alt=""></a>
+          <a href="" title="" data-gallery><img class="gallery-12" src="" alt=""></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  -->
+  <div class="row">
+    <div class="span12">
+      <div id="qita">
+        <h4 class="text-info">其他</h4>
+        <div class="span10 offset1" id="links">
+          <!-- a 中是大的图, img是小的图 -->
+          <a href="http://ww1.sinaimg.cn/large/95c2f5b8gw1eavehlxr5mj20iq0pu7a3.jpg" title="" data-gallery><img class="gallery-12" src="http://ww2.sinaimg.cn/large/95c2f5b8gw1eavekrnyyrj2032032q2v.jpg" alt=""></a>
+          <a href="http://ww2.sinaimg.cn/large/95c2f5b8gw1eaveitrutqj20iq0pu0w8.jpg" title="" data-gallery><img class="gallery-12" src="http://ww2.sinaimg.cn/large/95c2f5b8gw1eavelf892vj20320323yd.jpg" alt=""></a>
+          <a href="http://ww2.sinaimg.cn/large/95c2f5b8gw1eavei80dqrj20ka0ro77o.jpg" title="" data-gallery><img class="gallery-12" src="http://ww2.sinaimg.cn/large/95c2f5b8gw1eavek0dy1pj2032032745.jpg" alt=""></a>
+          <a href="http://ww2.sinaimg.cn/large/95c2f5b8gw1eavejajmp7j20i10oi0ww.jpg" title="" data-gallery><img class="gallery-12" src="http://ww4.sinaimg.cn/large/95c2f5b8gw1eavekc0wdfj2032032q2r.jpg" alt=""></a>
+          <a href="http://ww4.sinaimg.cn/large/95c2f5b8gw1eavejs61u4j216o1kw7w8.jpg" title="" data-gallery><img class="gallery-12" src="http://ww1.sinaimg.cn/large/95c2f5b8gw1eavekjwtxwj2032032glg.jpg" alt=""></a>
+          <a href="http://ww3.sinaimg.cn/large/95c2f5b8gw1eavejgz3s4j20dt0dt779.jpg" title="" data-gallery><img class="gallery-12" src="http://ww2.sinaimg.cn/large/95c2f5b8gw1eavekrnyyrj2032032q2v.jpg" alt=""></a>
+          <a href="http://ww4.sinaimg.cn/large/95c2f5b8gw1eavenfz4f9j20sg0lcn0x.jpg" title="" data-gallery><img class="gallery-12" src="http://ww2.sinaimg.cn/large/95c2f5b8gw1eavemog7a1j2032032q2u.jpg" alt=""></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block js %}
+
+<script src="/static/js/jquery.blueimp-gallery.min.js"></script>
+<script src="/static/js/bootstrap-image-gallery.min.js"></script>
+
+<script type="text/javascript" charset="utf-8">
+  /*
+  $('a[data-toggle=pill]').click(function (e) {
+    e.preventDefault();
+    $(this).pill('show');
+  });
+  */
+</script>
+{% endblock %}

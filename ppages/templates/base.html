@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <title>Teddy Love Pudding</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="/static/css/bootstrap.min.css" type="text/css" media="screen" charset="utf-8"/>
+        <link rel="stylesheet" href="/static/css/bootstrap-responsive.min.css" type="text/css" media="screen" charset="utf-8"/>
+        <link rel="stylesheet" href="/static/css/style.css" type="text/css" media="screen" charset="utf-8"/>
+        <link rel="shortcut icon" type="image/x-icon" href="/static/img/favicons.png">
+        {% block css %}{% endblock %}
+    </head>
+    <body>
+        <div class="navbar-wrapper">
+            <div class="container">
+                <div class="navbar navbar-inverse">
+                    <div class="navbar-inner">
+                        <button class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse" type="button">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a href="/" class="brand">Teddy<span class="love">❤</span>Pudding</a>
+                        <div class="nav-collapse collapse" style="height: 0px;">
+                            <ul class="nav">
+                                <li><a href="/">Home</a></li>
+                                <li><a href="/invitation" data-placement="bottom" data-toggle="tooltip" data-original-title="T&P邀请">邀请</a></li>
+                                <li><a href="/story" data-placement="bottom" data-toggle="tooltip" data-original-title="T&P故事">故事</a></li>
+                                <li><a href="/zouguo" data-placement="bottom" data-toggle="tooltip" data-original-title="T&P走过">走过</a></li>
+                                <li><a href="/photos">图集</a></li>
+                                <li><a href="/aboutus" data-placement="bottom" data-toggle="tooltip" data-original-title="关于T&P">关于</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        {% block content %} {% endblock %}
+
+        <div id="footer">
+            <div class="container">
+                <p class="muted credit">© 2013 Design by Teddy for the <span class="love">❤</span> of Pudding.</p>
+            </div>
+        </div>
+
+        <script src="/static/js/jquery-1.10.2.min.js"></script>
+        <script src="/static/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+        {% block js %}{% endblock %}
+        <script type="text/javascript" charset="utf-8">
+
+            $("a[data-toggle=tooltip]").tooltip().hover(function(e) {
+                e.preventDefault()
+            })
+        </script>
+    </body>
+</html>
+
+
+

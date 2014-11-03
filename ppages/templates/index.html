@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  {% include 'tandp.html' %}
+</div>
+  <!--
+<div class="container">
+  <div class="row">
+    <div class="span10 offset1 box">
+      <blockquote>
+        <small>Love is patient;Love is kind;</small>
+        <small>Love is not envious or boastfui or arrogant or rude;</small>
+        <small>It does not insist on its own way;</small>
+        <small>It is not irritable or resentful; </small>
+        <small>It does not rejoice in wrongdoing,but rejioices in the truth. </small>
+        <small>It bears all things,belives all things,</small>
+        <small>hopes all things,engures all things. </small>
+        <small>love never ends</small>
+    </blockquote>
+  </div>
+  </div>
+</div>
+  -->
+
+<div class="container">
+  <div class="row">
+    <div class="span3">
+      <img src="http://ww3.sinaimg.cn/large/95c2f5b8gw1eat1v9yglhj204q03d3yl.jpg" class="img-polaroid img-170" />
+      <h2>相识</h2>
+      <p>20岁那年，同学为媒，我们相识......</p>
+      <p><a href="/story#xiangshi" class="btn btn-info">More...</a></p>
+    </div>
+    <div class="span3">
+      <img src="http://ww3.sinaimg.cn/large/95c2f5b8gw1eat1vqc76gj204q03dq2y.jpg" class="img-polaroid img-170" />
+      <h2>相知</h2>
+      <p>24岁那年，诉说和聆听中，我们相知......</p>
+      <p><a href="/story#xiangzhi" class="btn btn-info">More...</a></p>
+    </div>
+    <div class="span3">
+      <img src="http://ww2.sinaimg.cn/large/95c2f5b8gw1eat1w3ok5zj204q03dt8p.jpg" class="img-polaroid img-170" />
+      <h2>相爱</h2>
+      <p>25岁那年，默契和感动中，我们相爱......</p>
+      <p><a href="/story#xiangai" class="btn btn-info">More...</a></p>
+    </div>
+    <div class="span3">
+      <img src="http://ww1.sinaimg.cn/large/95c2f5b8gw1eat1wazlajj204q03dwed.jpg" class="img-polaroid img-170" />
+      <h2>相守</h2>
+      <p>26岁这年，相信和珍惜中，坚定相守......</p>
+      <p><a href="/story#xiangshou" class="btn btn-info">More...</a></p>
+    </div>
+  </div>
+  <hr class="feature-divider" />
+</div>
+
+<div class="container panel">
+  <div class="row">
+    <div class="span8">
+      <div class="carousel slide" id="myCarousel">
+        <div class="carousel-inner">
+          <div class="item active">
+            <img alt="" src="http://ww4.sinaimg.cn/large/95c2f5b8gw1eat17873d0j20p00gn0uo.jpg">
+          </div>
+          <div class="item">
+            <img alt="" src="http://ww4.sinaimg.cn/large/95c2f5b8gw1eat15u2cn7j20p00gnmym.jpg">
+          </div>
+          <div class="item ">
+            <img alt="" src="http://ww4.sinaimg.cn/large/95c2f5b8gw1eat1ciyxx1j20p00gnwgh.jpg">
+          </div>
+          <div class="item">
+            <img alt="" src="http://ww4.sinaimg.cn/large/95c2f5b8gw1eat18mpf88j20p00gn76q.jpg">
+          </div>
+          <div class="item">
+            <img alt="" src="http://ww1.sinaimg.cn/large/95c2f5b8gw1eat1ev7proj20p00gngn1.jpg">
+          </div>
+        </div>
+        <a data-slide="prev" href="#myCarousel" class="left carousel-control">‹</a>
+        <a data-slide="next" href="#myCarousel" class="right carousel-control">›</a>
+      </div>
+    </div>
+    <div class="span4">
+      <div class="padding-large">
+        <h3>Teddy&Pudding</h3>
+        <p>从相识、相知、相爱到相守，原本在两个世界的两个人相交在一起，照片里记录着两人的点点滴滴。</p>
+        <a class="btn btn-info btn-large" href="/photos">浏览更多两人的照片</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>       
+{% endblock %}
+{% block js %}
+<script type="text/javascript" charset="utf-8">
+  !function ($) {
+    $(function(){
+      $('#hunSha').carousel({
+        interval: 5000
+      })
+    })
+  }(window.jQuery)
+//$('#myCarousel').carousel();
+</script>
+{% endblock %}

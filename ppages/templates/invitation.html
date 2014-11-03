@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+  {% include 'tandp.html' %}
+  <!--
+  <div class="row">
+    <div class="span2 offset3">
+      <img src="img/gruntjs.png" class="img-circle image-wh" alt="">
+    </div>
+    <div class="span vm">
+      <p>真诚邀请您来参加我们的婚礼</p>
+    </div>
+    <div class="span">
+      <img src="img/gruntjs.png" alt="" class="img-circle image-wh" />
+    </div>
+  </div>
+  <hr class="feature-divider">
+  -->
+
+  <div class="invitation">
+    <address>
+      <h4 class="text-info">时间/地点：</h4>
+      <ul>
+      <li>婚礼时间：2013年11月30日（农历十月二十八）中午12:30，晚上18:30</li>
+    <li>婚礼地点：厦门市翔安区马巷镇<strong>城场村</strong>村西111号（过同安大桥第一个村口进来右手边）三层红色瓷砖楼</li>
+  </ul>
+</address>
+<h4 class="text-info"><a href="/invitation#teddyHouse">如何抵达(城场村)：</a></h4>
+<ol>
+<strong>途经公交：</strong>
+<li>763（BRT西柯枢纽站<->翔安文教园）</li>
+<li>716（后郭<->新店）</li>
+</ol>
+<ol>
+<strong>驾车路线：</strong>
+<li>同安、集美方向的可走海翔大道方向，过同安大桥后第二个路口即到达。</li>
+<li> 马巷、新店方向可由翔安大道上海翔大道，往同安大桥方向左手边。</li>
+</ol>
+      </div>
+      <h4 class="text-info">联系人：</h4>
+      <div class="row">
+        <div class="span3 offset1">
+          <h5 class="text-center">男方联系人</h5>
+          <ul>
+          <li>小学联系人：林惠宾(13400676227)</li>
+          <li>高中联系人：陈艺辉(13559484003)</li>
+          <li>大学联系人：朱明泽(18659262819)</li>
+          <li>厦门北站联系人：林小彬(13779939193)林育英(18649619343)</li>
+          <li>其他：林宏基(13599528424)</li>
+          </ul>
+      </div>
+      <div class="span3 offset2">
+        <h5 class="text-center">女方联系人</h5>
+        <ul>
+        <li>初中联系人：陈艺环(15980972878)</li>
+        <li>高中联系人：吴剑锋(13950096162)</li>
+        <li>大学联系人：陈英俊(13696947795)</li>
+        </ul>
+      </div>
+    </div>
+    <hr class="feature-divider">
+    <h4 class="text-info">查百度地图</h4>
+  </div>
+
+  <div class="container panel" id="teddyHouse" style="width: 940px; height: 450px;"></div>
+
+  {% endblock %}
+
+  {% block js %}
+  <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=B2f7df786449281606f6655bba0f7d46"></script>
+  <script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+  <link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
+  <script type="text/javascript">
+    // 百度地图API功能
+  var map = new BMap.Map("teddyHouse", {minZoom:15, maxZoom: 17});            // 创建Map实例
+  var point = new BMap.Point(118.219462,24.636405);
+  map.centerAndZoom(point, 15);
+  //map.centerAndZoom(new BMap.Point(116.404, 39.915), 14);
+  // add label
+  var opts = {
+    position: point,
+    offset: new BMap.Size(10, -40)
+  };
+var teddyLabel = new BMap.Label("Teddy家在这里,点击查看如何抵达！", opts);
+teddyLabel.setStyle({
+  color: 'black',
+  fontSize: '12px',
+  height: '20px',
+  lineHeight: '20px'
+});
+map.addOverlay(teddyLabel);
+// add marker
+var teddyMarker = new BMap.Marker(new BMap.Point(118.219462,24.636405));
+map.addOverlay(teddyMarker);
+teddyMarker.setAnimation(BMAP_ANIMATION_BOUNCE); // 跳动动画
+// teddy house info
+var content = "<div style=\"margin: 0; line-height: 20px; padding: 2px;\">" +
+"<ul><li>Teddy家地址：厦门市翔安区马巷镇城场村</li><li><ol>联系电话：<li>15859446742(Teddy)</li><li>18359292606(Teddy爸)</li></ul></div>";
+content += "<span class=\"input\"><strong></strong><input class=\"outset\" type=\"text\" name=\"origin\" value=\"马巷车站\"/><br/><input class=\"outset-but\" type=\"button\" value=\"公交\" onclick=\"gotobaidu(1)\" /><input class=\"outset-but\" type=\"button\" value=\"驾车\"  onclick=\"gotobaidu(2)\"/><a class=\"gotob\"href=\"url=\"http://api.map.baidu.com/direction?destination=latlng:"+teddyMarker.getPosition().lat+","+teddyMarker.getPosition().lng+"|name:Teddy家"+"®ion=厦门"+"&output=html\" target=\"_blank\"></a></span>"; 
+
+var hiddeninput="<input type=\"hidden\" value=\""+'厦门'+"\" name=\"region\" /><input type=\"hidden\" value=\"html\" name=\"output\" /><input type=\"hidden\" value=\"driving\" name=\"mode\" /><input type=\"hidden\" value=\"latlng:"+teddyMarker.getPosition().lat+","+teddyMarker.getPosition().lng+"|name:城场村"+"\" name=\"destination\" />";  
+var content1 ="<form id=\"gotobaiduform\" action=\"http://api.map.baidu.com/direction\" target=\"_blank\" method=\"get\">" + content +hiddeninput+"</form>";
+var opts1 = { width: 300 };  
+
+// 搜索框
+var searchInfoWindow = new BMap.InfoWindow(content1, opts1);
+/*
+   var searchInfoWindow = new BMapLib.SearchInfoWindow(map, content, {
+   title: "Teddy的家",
+   width: 300,
+   height: 55,
+//panel: "panel",
+enableAutoPan: true,
+searchTypes: [
+BMAPLIB_TAB_SEARCH,
+BMAPLIB_TAB_TO_HERE,
+BMAPLIB_TAB_FROM_HERE
+]
+});
+ */
+teddyMarker.addEventListener("click", function(e) {
+  teddyMarker.openInfoWindow(searchInfoWindow);
+})
+$('close').onclick = function () {
+  searchInfoWindow.close();
+}
+$('open').onclick = function () {
+
+}
+//map.enableScrollWheelZoom(true);
+
+//var transit = new BMap.TransitRoute(map, {
+//    renderOptions: {map: map}
+//});
+//transit.search("王府井", "西单");
+function gotobaidu(type) {
+  if ($.trim($("input[name=origin]").val()) == "") {
+    alert("请输入起点");
+    return;
+  } else {
+    if (type == 1) {
+      $("input[name=mode]").val("transit");
+      $("#gotobaiduform")[0].submit();
+    } else if (type == 2) {
+      $("input[name=mode]").val("driving");
+      $("#gotobaiduform")[0].submit();
+    }
+  }
+}
+// show tooltip of the nav
+$("a[data-toggle=tooltip]").tooltip().hover(function(e) {
+  e.preventDefault()
+})
+</script>
+{% endblock %}
+
