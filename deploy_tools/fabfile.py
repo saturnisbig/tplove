@@ -15,8 +15,8 @@ def deploy():
     _get_latest_source(source_folder)
     _update_settings(source_folder, env.host)
     _update_virtualenv(source_folder)
-    _update_static_files(source_folder)
-    _update_database(source_folder)
+    #_update_static_files(source_folder)
+    #_update_database(source_folder)
 
 
 def _create_directory_structure_if_necessary(site_folder):
@@ -40,12 +40,12 @@ def _update_settings(source_folder, site_name):
         "ALLOWED_HOSTS = .+$",
         'ALLOWED_HOSTS = ["%s"]' % (site_name)
         )
-    secret_key_file = source_folder + '/tplove/secret_key.py'
-    if not exists(secret_key_file):
-        chars = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
-        key = ''.join(random.SystemRandom().choice(chars) for _ in range(50))
-        append(secret_key_file, "SECRET_KEY = '%s'" % (key,))
-    append(settings_path, '\nfrom .secret_key import SECRET_KEY')
+    #secret_key_file = source_folder + '/tplove/secret_key.py'
+    #if not exists(secret_key_file):
+    #    chars = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
+    #    key = ''.join(random.SystemRandom().choice(chars) for _ in range(50))
+    #    append(secret_key_file, "SECRET_KEY = '%s'" % (key,))
+    #append(settings_path, '\nfrom .secret_key import SECRET_KEY')
 
 
 def _update_virtualenv(source_folder):
