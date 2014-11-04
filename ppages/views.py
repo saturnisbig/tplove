@@ -19,3 +19,7 @@ def photos(request):
 
 def invitation(request):
     return render(request, 'invitation.html')
+
+
+def zouguo(request):
+    return render(request, 'zouguo.html')
